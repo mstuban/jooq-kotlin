@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa") {
-		exclude(group = "jakarta.persistence", module = "jakarta.persistence.api")
+		//exclude(group = "jakarta.persistence", module = "jakarta.persistence.api")
 	}
 	implementation("org.springframework.boot:spring-boot-starter-jooq")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -37,6 +37,9 @@ dependencies {
 	implementation("org.jooq:jooq-kotlin")
 	implementation("org.jooq:jooq")
 	implementation("org.flywaydb:flyway-core")
+	implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
+//	implementation("org.hibernate:hibernate-core:6.4.4.Final")
+//	implementation("org.hibernate:hibernate-entitymanager:5.6.15.Final")
 
 	jooqCodegen(platform("org.springframework.boot:spring-boot-dependencies:3.2.2"))
 	jooqCodegen("org.postgresql:postgresql")
@@ -57,8 +60,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-
-
 fun Array<String>.filterAndTrimPrefix(prefix: String) =
 	this.filter { it.startsWith(prefix) }
 		.map { it.substring(prefix.length) }
@@ -66,14 +67,14 @@ fun Array<String>.filterAndTrimPrefix(prefix: String) =
 tasks {
 	generateJooqClasses {
 		schemas.set(listOf("public"))
-		basePackageName.set("com.example.ooq")
+		basePackageName.set("com.example.jooq")
 		migrationLocations.setFromFilesystem(
-			project.files("$projectDir/src/main/resources/db/migrations"),
+			project.files("$projectDir/src/main/resources/db/migration"),
 		)
 		migrationLocations.set(
 			listOf(
 				MigrationLocation.Filesystem(
-					project.files("$projectDir/src/main/resources/db/migrations"),
+					project.files("$projectDir/src/main/resources/db/migration"),
 				),
 			),
 		)
@@ -82,9 +83,7 @@ tasks {
 			database.withExcludes(
 				listOf(
 					"(pg_catalog|information_schema)\\..*",
-					"flyway_schema_history",
-					// We need to exclude columns present on DB schema but are NOT defined on their respective entities
-					"locations\\.(external_info|last_sync_time)",
+					"flyway_schema_history"
 				).joinToString("|"),
 			)
 		}

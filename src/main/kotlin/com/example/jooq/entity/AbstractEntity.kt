@@ -14,7 +14,7 @@ import jakarta.persistence.PreUpdate
 abstract class AbstractEntity : Serializable {
 
     @Id
-    @Column(unique = true, updatable = false)
+    @Column(unique = true)
     @GeneratedValue(strategy = IDENTITY)
     var id: Long? = null
 

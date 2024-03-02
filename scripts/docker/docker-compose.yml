@@ -8,11 +8,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: jooq
+      POSTGRES_SCHEMS: public
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - postgres_data:/scripts/sql/init-db.sql
+      - postgres_data:/src/main/resources/db/migrations
 
 volumes:
   postgres_data:
