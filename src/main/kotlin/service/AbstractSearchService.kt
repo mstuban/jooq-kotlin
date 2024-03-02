@@ -1,6 +1,5 @@
 package service
 
-import com.example.jooq.Tables
 import com.example.jooq.entity.*
 import com.example.jooq.search.AbstractSearch
 import com.example.jooq.search.AbstractSort
@@ -72,8 +71,8 @@ abstract class AbstractSearchService<ENTITY : AbstractResourceEntity<*>, SORT>(
 
         val cteAlias = name("__cte")
         val (records, counterFromWindowFunction) = softDeletionAwareDslContext.with(cteAlias).`as`(
-            select(Tables.PERSONS.asterisk(), rowNumberField)
-                .from(Tables.PERSONS)
+            select(targetTable.asterisk(), rowNumberField)
+                .from(targetTable)
                 .where(condition)
                 .orderBy(orderBy)
         )

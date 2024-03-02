@@ -1,21 +1,16 @@
 package com.example.jooq.entity
 
+import jakarta.persistence.*
 import java.io.Serializable
 import java.time.OffsetDateTime
-import jakarta.persistence.Column
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType.IDENTITY
-import jakarta.persistence.Id
-import jakarta.persistence.MappedSuperclass
-import jakarta.persistence.PrePersist
-import jakarta.persistence.PreUpdate
 
 @MappedSuperclass
 abstract class AbstractEntity : Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_generator")
+    @SequenceGenerator(name = "person_generator", sequenceName = "persons_seq", allocationSize = 1)
     @Column(unique = true)
-    @GeneratedValue(strategy = IDENTITY)
     var id: Long? = null
 
     @Column(name = "created", nullable = false, updatable = false)

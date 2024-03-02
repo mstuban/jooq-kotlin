@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.env.Environment
 import org.springframework.stereotype.Component
 import service.AbstractSearchService
+import kotlin.random.Random
 
 @Component
 class JooqKotlinExample(
@@ -27,10 +28,10 @@ class JooqKotlinExample(
     @PostConstruct
     fun init() {
         logger.info(environment.activeProfiles.toString())
-        personRepository.save(Person().apply {
-            uid = PersonUid()
-            name = "John"
-        }
+        personRepository.save(
+            Person().apply {
+                name = "John"
+            }
         )
         println(personSearchService.findAllByQuery(PersonSearch()).firstOrNull()?.name ?: "nothing")
     }
