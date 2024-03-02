@@ -9,13 +9,8 @@ data class PersonSearch(
     var limit: Int = 20,
     var expression: String? = null,
 ) : Serializable, AbstractSearch {
-
     override fun toCondition() = DSL.noCondition()
         .andFilter(expression) {
-            if (it.isNotEmpty()) {
-                persons.NAME.containsIgnoreCase(it)
-            } else {
-                DSL.noCondition()
-            }
+            DSL.noCondition()
         }
 }

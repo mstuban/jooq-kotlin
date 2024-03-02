@@ -1,0 +1,2 @@
+SELECT 'CREATE DATABASE jooq'
+WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'jooq')
