@@ -1,4 +1,4 @@
-package com.example.jooq.entity
+package com.example.jooq.search
 
 import org.jooq.Field
 

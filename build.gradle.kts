@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.9.22"
 	kotlin("plugin.spring") version "1.9.22"
 	kotlin("plugin.jpa") version "1.9.22"
+	id("dev.monosoul.jooq-docker") version "6.0.12-tmpfs"
 }
 
 group = "com.example"
@@ -30,6 +31,13 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.postgresql:postgresql:42.7.2")
+
+	jooqCodegen(platform("org.springframework.boot:spring-boot-dependencies:$springBootVersion"))
+
+	jooqCodegen("org.postgresql:postgresql")
+	jooqCodegen("ch.qos.logback:logback-classic")
+	jooqCodegen("org.jooq:jooq-codegen")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

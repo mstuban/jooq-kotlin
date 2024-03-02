@@ -1,5 +1,6 @@
 package com.example.jooq;
 
+import com.example.jooq.search.PersonSearchService
 import jakarta.annotation.PostConstruct
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -12,11 +13,14 @@ import service.AbstractSearchService
 class JooqKotlinExample(
     @Autowired
     private val environment: Environment,
+    @Autowired
+    private val personSearchService: PersonSearchService
 ) {
     var logger: Logger = LoggerFactory.getLogger(AbstractSearchService::class.java)
 
     @PostConstruct
     fun init() {
         logger.info(environment.activeProfiles.toString())
+        personSearchService.findAllByQuery()
     }
 }

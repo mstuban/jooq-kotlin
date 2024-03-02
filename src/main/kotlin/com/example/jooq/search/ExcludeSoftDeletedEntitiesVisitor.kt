@@ -1,4 +1,4 @@
-package com.example.jooq.entity
+package com.example.jooq.search
 
 import org.jooq.Clause
 import org.jooq.Field
@@ -52,7 +52,6 @@ internal class ExcludeSoftDeletedEntitiesVisitor(
 
     companion object {
 
-        @Suppress("UNCHECKED_CAST")
         private fun fieldStack(context: VisitContext): Deque<MutableSet<Field<String>>> =
             (context.data() as MutableMap<String, Deque<MutableSet<Field<String>>>>)
                 .computeIfAbsent("statuses") { ArrayDeque() }

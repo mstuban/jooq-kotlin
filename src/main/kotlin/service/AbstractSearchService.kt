@@ -1,7 +1,10 @@
 package service
 
 import com.example.jooq.entity.*
-import com.example.jooq.entity.ExcludeSoftDeletedEntitiesVisitor
+import com.example.jooq.search.AbstractSearch
+import com.example.jooq.search.AbstractSort
+import com.example.jooq.search.ExcludeSoftDeletedEntitiesVisitor
+import com.example.jooq.search.OffsetBasedPageRequest
 import com.example.jooq.util.fetchWithWindowFunction
 import jakarta.persistence.EntityManager
 import org.jooq.DSLContext

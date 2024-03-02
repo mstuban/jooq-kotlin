@@ -1,4 +1,4 @@
-package com.example.jooq.entity
+package com.example.jooq.search
 
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
@@ -6,16 +6,12 @@ import java.io.Serializable
 
 class OffsetBasedPageRequest(
     private val offset: Int,
-    val limit: Int,
+    private val limit: Int,
     private val sort: Sort = Sort.unsorted()
 ) : Pageable, Serializable {
     init {
         require(offset >= 0)
         require(limit > 0)
-    }
-
-    companion object {
-        private const val serialVersionUID: Long = 1
     }
 
     override fun getPageNumber(): Int = offset / limit
