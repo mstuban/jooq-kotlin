@@ -1,4 +1,4 @@
-package com.example.jooq.search
+package com.example.jooq.entity.page
 
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort

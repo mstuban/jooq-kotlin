@@ -14,7 +14,7 @@ import java.util.UUID
 
 open class UidDeserializer : ContextualDeserializer, StdDeserializer<Uid>(Uid::class.java) {
 
-    var rawClass: Class<*>? = null
+    private var rawClass: Class<*>? = null
 
     override fun createContextual(context: DeserializationContext, property: BeanProperty?): JsonDeserializer<*> {
         rawClass = context.contextualType?.rawClass
@@ -46,7 +46,5 @@ open class UidDeserializer : ContextualDeserializer, StdDeserializer<Uid>(Uid::c
         return rawClass?.name
     }
 
-    private fun resolveClassName(classProperty: String): String =
-        if (!classProperty.startsWith('c')) "co.utmost.oc.uid.$classProperty"
-        else classProperty.replace("com.salteese", "co.utmost")
+    private fun resolveClassName(classProperty: String): String = "com.example.jooq.$classProperty"
 }

@@ -4,7 +4,7 @@ import com.example.jooq.entity.*
 import com.example.jooq.search.AbstractSearch
 import com.example.jooq.entity.sort.AbstractSort
 //import com.example.jooq.search.ExcludeSoftDeletedEntitiesVisitor
-import com.example.jooq.search.OffsetBasedPageRequest
+import com.example.jooq.entity.page.OffsetBasedPageRequest
 import com.example.jooq.util.fetchWithWindowFunction
 import jakarta.persistence.EntityManager
 import org.jooq.DSLContext

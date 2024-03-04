@@ -1,4 +1,4 @@
-package com.example.jooq.search
+package com.example.jooq.service
 
 import com.example.jooq.Tables.PERSONS
 import com.example.jooq.entity.Person
