@@ -6,10 +6,9 @@ import com.example.jooq.entity.sort.PersonSort
 import com.example.jooq.tables.Persons
 import jakarta.persistence.EntityManager
 import org.jooq.DSLContext
-import org.springframework.stereotype.Component
-import com.example.jooq.service.AbstractSearchService
+import org.springframework.stereotype.Service
 
-@Component
+@Service
 @Suppress("SpreadOperator")
 class PersonSearchService(
     entityManager: EntityManager,

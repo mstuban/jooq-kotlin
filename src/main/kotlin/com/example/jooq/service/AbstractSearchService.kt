@@ -52,8 +52,13 @@ abstract class AbstractSearchService<ENTITY : AbstractResourceEntity<*>, SORT>(
             .singleOrNull()?.value1() ?: false
     }
 
-    fun findAllByQuery(search: AbstractSearch, sort: Sort = Sort.unsorted()): List<ENTITY> =
-        findByQuery(search, OffsetBasedPageRequest(0, Int.MAX_VALUE, sort)).content
+    fun findAllByQuery(
+        search: AbstractSearch,
+        sort: Sort = Sort.unsorted(),
+        limit: Int? = 20,
+        offset: Int? = 0
+    ): List<ENTITY> =
+        findByQuery(search, OffsetBasedPageRequest(offset ?: 0, limit ?: 20, sort)).content
 
     private fun findByQuery(
         search: AbstractSearch,

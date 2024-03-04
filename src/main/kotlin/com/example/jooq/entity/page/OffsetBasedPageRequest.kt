@@ -11,7 +11,7 @@ class OffsetBasedPageRequest(
 ) : Pageable, Serializable {
     init {
         require(offset >= 0)
-        require(limit > 0)
+        require(limit >= 0)
     }
 
     override fun getPageNumber(): Int = offset / limit

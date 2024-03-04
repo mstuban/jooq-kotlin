@@ -26,9 +26,8 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa") {
-		//exclude(group = "jakarta.persistence", module = "jakarta.persistence.api")
-	}
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-jooq")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -38,14 +37,13 @@ dependencies {
 	implementation("org.jooq:jooq")
 	implementation("org.flywaydb:flyway-core")
 	implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
-//	implementation("org.hibernate:hibernate-core:6.4.4.Final")
-//	implementation("org.hibernate:hibernate-entitymanager:5.6.15.Final")
 
 	jooqCodegen(platform("org.springframework.boot:spring-boot-dependencies:3.2.2"))
 	jooqCodegen("org.postgresql:postgresql")
 	jooqCodegen("ch.qos.logback:logback-classic")
 	jooqCodegen("org.jooq:jooq-codegen")
 
+	testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

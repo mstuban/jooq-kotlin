@@ -6,8 +6,8 @@ import org.jooq.impl.DSL
 import java.io.Serializable
 
 data class PersonSearch(
-    var offset: Int = 0,
-    var limit: Int = 20,
+    var limit: Int? = 20,
+    var offset: Int? = 0,
     var expression: String? = null,
 ) : Serializable, AbstractSearch {
     override fun toCondition() = DSL.noCondition()
