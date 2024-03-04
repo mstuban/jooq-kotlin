@@ -1,6 +1,6 @@
-package com.example.jooq.util
+package com.example.jooq.entity.serializers
 
-import com.example.jooq.entity.Uid
+import com.example.jooq.entity.uid.Uid
 import com.fasterxml.jackson.core.JsonGenerator
 import com.fasterxml.jackson.databind.SerializerProvider
 import com.fasterxml.jackson.databind.ser.std.StdSerializer

@@ -1,6 +1,7 @@
-package com.example.jooq.util
+package com.example.jooq.entity.converters
 
-import com.example.jooq.entity.Uid
+import com.example.jooq.entity.uid.Uid
+import com.example.jooq.util.toTypedCommonUidSafely
 import jakarta.persistence.AttributeConverter
 import jakarta.persistence.Converter
 

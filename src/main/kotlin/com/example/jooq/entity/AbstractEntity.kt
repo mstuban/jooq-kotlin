@@ -6,7 +6,6 @@ import java.time.OffsetDateTime
 
 @MappedSuperclass
 abstract class AbstractEntity : Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_generator")
     @SequenceGenerator(name = "person_generator", sequenceName = "persons_seq", allocationSize = 1)

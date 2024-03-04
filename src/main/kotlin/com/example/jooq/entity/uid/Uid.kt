@@ -1,8 +1,7 @@
-package com.example.jooq.entity
+package com.example.jooq.entity.uid
 
-import com.example.jooq.util.UidDeserializer
-import com.example.jooq.util.UidSerializer
-import com.fasterxml.jackson.annotation.JsonIgnore
+import com.example.jooq.entity.deserializers.UidDeserializer
+import com.example.jooq.entity.serializers.UidSerializer
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
 
@@ -13,40 +12,23 @@ import java.util.*
 @JsonDeserialize(using = UidDeserializer::class)
 abstract class Uid : Serializable, Comparable<Uid> {
 
-    val uuid: UUID get() = field
+    val uuid: UUID
 
-    protected constructor(uid: String, validate: Boolean = true) {
+    protected constructor(uid: String) {
         this.uuid = UUID.fromString(uid.substring(getPrefixString().length))
     }
-
-
-    protected constructor(uuid: UUID?) {
-        this.uuid = uuid ?: throw Exception("Invalid uuid: null")
-    }
-
 
     constructor() {
         uuid = UUID.randomUUID()
     }
 
-    fun uuid(): UUID = uuid
-
     override fun toString(): String = getPrefix().toString() + uuid
 
-    @JsonIgnore
     abstract fun getPrefix(): UidPrefix
 
-    @JsonIgnore
-    fun getPrefixString() = getPrefix().toString()
+    private fun getPrefixString() = getPrefix().toString()
 
     override fun compareTo(other: Uid): Int = toString().compareTo(other.toString())
-
-    fun asType(type: Class<Any>): Any {
-        return when (type) {
-            String::class.java -> toString()
-            else -> type.cast(this)
-        }
-    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -60,17 +42,7 @@ abstract class Uid : Serializable, Comparable<Uid> {
         return true
     }
 
-    @JsonIgnore
-    @Transient
-    private var _hashCode: Int? = null
-
     override fun hashCode(): Int {
-        if (_hashCode == null)
-            _hashCode = 31 * uuid.hashCode() + getPrefix().hashCode()
-        return _hashCode ?: error("Unexpected null cached hashCode")
-    }
-
-    companion object {
-        const val serialVersionUID = 1L
+        return 31 * uuid.hashCode() + getPrefix().hashCode()
     }
 }

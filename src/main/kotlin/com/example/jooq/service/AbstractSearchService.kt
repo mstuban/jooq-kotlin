@@ -1,9 +1,9 @@
-package service
+package com.example.jooq.service
 
 import com.example.jooq.entity.*
 import com.example.jooq.search.AbstractSearch
-import com.example.jooq.search.AbstractSort
-import com.example.jooq.search.ExcludeSoftDeletedEntitiesVisitor
+import com.example.jooq.entity.sort.AbstractSort
+//import com.example.jooq.search.ExcludeSoftDeletedEntitiesVisitor
 import com.example.jooq.search.OffsetBasedPageRequest
 import com.example.jooq.util.fetchWithWindowFunction
 import jakarta.persistence.EntityManager
@@ -37,7 +37,7 @@ abstract class AbstractSearchService<ENTITY : AbstractResourceEntity<*>, SORT>(
         DSL.using(
             dslContext
                 .configuration()
-                .derive(ExcludeSoftDeletedEntitiesVisitor(targetTable))
+              //  .derive(ExcludeSoftDeletedEntitiesVisitor(targetTable))
         )
     }
 

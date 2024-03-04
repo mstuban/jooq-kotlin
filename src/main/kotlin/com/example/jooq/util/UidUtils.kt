@@ -2,8 +2,7 @@
 
 package com.example.jooq.util
 
-import com.example.jooq.entity.UidPrefix
-import java.util.*
+import com.example.jooq.entity.uid.UidPrefix
 
 object UidUtils {
     private val prefixStringToEnum = UidPrefix.values().associateBy { it.prefix }
@@ -12,15 +11,5 @@ object UidUtils {
     fun calculatePrefix(uid: String) = takeUntilUppercaseLetters(uid)?.let { prefixStringToEnum[it] }
 
     @JvmStatic
-    fun isValidUid(string: String): Boolean = calculatePrefix(string)?.let { prefix ->
-        try {
-            UUID.fromString(string.substring(prefix.toString().length))
-            true
-        } catch (ignored: IllegalArgumentException) {
-            false
-        }
-    } ?: false
-
-    @JvmStatic
-    private fun takeUntilUppercaseLetters(uid: String) = uid.takeWhile { it >= 'A' && it <= 'Z' }.ifEmpty { null }
+    private fun takeUntilUppercaseLetters(uid: String) = uid.takeWhile { it in 'A'..'Z' }.ifEmpty { null }
 }

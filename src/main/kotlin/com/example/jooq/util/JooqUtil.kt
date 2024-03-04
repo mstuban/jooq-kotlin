@@ -1,3 +1,5 @@
+@file:JvmName("JooqUtil")
+
 package com.example.jooq.util
 
 import jakarta.persistence.EntityManager

@@ -1,6 +1,7 @@
-package com.example.jooq.util
+package com.example.jooq.entity.deserializers
 
-import com.example.jooq.entity.Uid
+import com.example.jooq.entity.uid.Uid
+import com.example.jooq.util.toTypedCommonUidSafely
 import com.fasterxml.jackson.core.JsonParser
 import com.fasterxml.jackson.core.JsonTokenId.ID_START_OBJECT
 import com.fasterxml.jackson.databind.BeanProperty
