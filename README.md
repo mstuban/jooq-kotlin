@@ -1,0 +1,1 @@
+Spring Boot Kotlin application implementing JOOQ AbstractSearchService
