@@ -45,6 +45,12 @@ dependencies {
 
 	testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.testcontainers:junit-jupiter:1.19.5")
+	testImplementation("org.testcontainers:jdbc:1.19.6")
+	testImplementation("org.testcontainers:mockserver:1.19.6")
+	testImplementation("org.testcontainers:testcontainers:1.19.6")
+	testImplementation("org.testcontainers:mockserver")
+	testImplementation("org.testcontainers:postgresql:1.19.6")
 }
 
 tasks.withType<KotlinCompile> {
