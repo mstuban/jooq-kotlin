@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service
 class PersonSearchService(
     entityManager: EntityManager,
     dslContext: DSLContext
-) : AbstractSearchService<Person, PersonSort>(entityManager, dslContext) {
+) : GeneralizedSearchService<Person, PersonSort>(entityManager, dslContext) {
 
     override val targetClass = Person::class
     override val targetTable: Persons = PERSONS

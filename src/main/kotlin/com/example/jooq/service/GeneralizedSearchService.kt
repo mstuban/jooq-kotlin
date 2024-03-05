@@ -3,7 +3,6 @@ package com.example.jooq.service
 import com.example.jooq.entity.*
 import com.example.jooq.search.AbstractSearch
 import com.example.jooq.entity.sort.AbstractSort
-//import com.example.jooq.search.ExcludeSoftDeletedEntitiesVisitor
 import com.example.jooq.entity.page.OffsetBasedPageRequest
 import com.example.jooq.util.fetchWithWindowFunction
 import jakarta.persistence.EntityManager
@@ -25,7 +24,7 @@ import org.springframework.data.support.PageableExecutionUtils
 import java.util.function.LongSupplier
 import kotlin.reflect.KClass
 
-abstract class AbstractSearchService<ENTITY : AbstractResourceEntity<*>, SORT>(
+abstract class GeneralizedSearchService<ENTITY : AbstractResourceEntity<*>, SORT>(
     private val entityManager: EntityManager,
     dslContext: DSLContext
 ) where SORT : AbstractSort, SORT : Enum<*> {
