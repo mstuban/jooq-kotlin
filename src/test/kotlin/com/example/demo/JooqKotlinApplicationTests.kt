@@ -5,7 +5,6 @@ import com.example.jooq.repository.PersonRepository
 import com.example.jooq.search.PersonSearch
 import com.example.jooq.service.PersonSearchService
 import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
