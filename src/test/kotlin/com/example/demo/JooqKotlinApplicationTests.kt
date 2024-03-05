@@ -76,12 +76,12 @@ class JooqKotlinApplicationTests {
 		)
 		personRepository.save(
 			Person().apply {
-				name = "Johnny Doe"
+				name = "Johnny1 Doe"
 			}
 		)
 		personRepository.save(
 			Person().apply {
-				name = "Johnny Doe"
+				name = "Johnny2 Doe"
 			}
 		)
 		personRepository.save(
@@ -90,9 +90,10 @@ class JooqKotlinApplicationTests {
 			}
 		)
 
-		with(personSearchService.findAllByQuery(PersonSearch(limit = 10, offset = 5, expression = "John"))) {
-			size shouldBe 1
-			first().name.shouldBe("Johnny Doe")
+		with(personSearchService.findAllByQuery(PersonSearch(expression = "John"), limit = 10, offset = 1)) {
+			size shouldBe 2
+			first().name.shouldBe("Johnny1 Doe")
+			this[1].name.shouldBe("Johnny2 Doe")
 		}
 	}
 }
