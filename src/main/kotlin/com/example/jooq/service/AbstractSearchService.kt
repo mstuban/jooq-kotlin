@@ -37,7 +37,6 @@ abstract class AbstractSearchService<ENTITY : AbstractResourceEntity<*>, SORT>(
         DSL.using(
             dslContext
                 .configuration()
-              //  .derive(ExcludeSoftDeletedEntitiesVisitor(targetTable))
         )
     }
 
