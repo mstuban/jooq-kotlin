@@ -22,4 +22,4 @@ import org.testcontainers.junit.jupiter.Testcontainers
 @ResourceLock(value = "TESTCONTAINERS")
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles(profiles = ["postgres", "test"])
-annotation class PostgresSpringBootTest
+annotation class PostgresSpringTest
