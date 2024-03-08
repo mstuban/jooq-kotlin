@@ -1,8 +1,9 @@
-package com.example.jooq.service
+package com.example.jooq.service.impl
 
 import com.example.jooq.Tables.PERSONS
 import com.example.jooq.entity.Person
 import com.example.jooq.entity.sort.PersonSort
+import com.example.jooq.service.GeneralizedSearchService
 import com.example.jooq.tables.Persons
 import jakarta.persistence.EntityManager
 import org.jooq.DSLContext

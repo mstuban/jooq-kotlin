@@ -66,7 +66,6 @@ abstract class GeneralizedSearchService<ENTITY : AbstractResourceEntity<*>, SORT
 
         val orderBy = pageable.toOrderBy()
         val rowNumberField = rowNumber().over()
-            // assuming "id" is the Primary Key of all entities
             .partitionBy(targetTable.field("id"))
             .orderBy(orderBy)
             .`as`("__row_number")
@@ -88,7 +87,6 @@ abstract class GeneralizedSearchService<ENTITY : AbstractResourceEntity<*>, SORT
             .fetchWithWindowFunction(entityManager, totalCountField, targetClass.java)
 
         val totalSupplier = LongSupplier {
-            // using window function to compute totalCount only works if offset is NOT beyond the last record
             if (records.isNotEmpty() || pageable.offset == 0L) {
                 counterFromWindowFunction
             } else {

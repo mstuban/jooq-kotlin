@@ -1,4 +1,4 @@
-package com.example.demo
+package com.example.demo.annotations
 
 import org.junit.jupiter.api.parallel.ResourceLock
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase

@@ -1,11 +1,12 @@
 package com.example.demo
 
+import com.example.demo.annotations.PostgresSpringTest
 import com.example.jooq.entity.Person
 import com.example.jooq.entity.sort.model.PersonSortModel
 import com.example.jooq.entity.sort.model.PersonSortTypeModel
 import com.example.jooq.repository.PersonRepository
 import com.example.jooq.search.PersonSearch
-import com.example.jooq.service.PersonSearchService
+import com.example.jooq.service.impl.PersonSearchService
 import com.example.jooq.util.toSort
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach

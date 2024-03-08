@@ -1,4 +1,4 @@
-package co.utmost.gwg.api.model.sorting
+package com.example.jooq.entity.sort.model
 
 interface SortTypeModel {
     val name: String

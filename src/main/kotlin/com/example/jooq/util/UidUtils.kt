@@ -5,7 +5,7 @@ package com.example.jooq.util
 import com.example.jooq.entity.uid.UidPrefix
 
 object UidUtils {
-    private val prefixStringToEnum = UidPrefix.values().associateBy { it.prefix }
+    private val prefixStringToEnum = UidPrefix.entries.associateBy { it.prefix }
 
     @JvmStatic
     fun calculatePrefix(uid: String) = takeUntilUppercaseLetters(uid)?.let { prefixStringToEnum[it] }
