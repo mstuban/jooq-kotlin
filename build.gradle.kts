@@ -10,6 +10,7 @@ plugins {
 	kotlin("plugin.spring") version "1.9.22"
 	kotlin("plugin.jpa") version "1.9.22"
 	id("io.gitlab.arturbosch.detekt") version "1.23.5"
+	id("com.google.cloud.tools.jib") version "3.4.1"
 }
 
 group = "com.example"
@@ -97,4 +98,8 @@ tasks {
 
 detekt {
 	toolVersion = "1.23.5"
+}
+
+jib {
+	"MEM_JAVA_OPTS" to "-Xmx768m -Xms300m"
 }
