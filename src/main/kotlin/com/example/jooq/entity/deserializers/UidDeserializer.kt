@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer
 import java.util.UUID
 
 open class UidDeserializer : ContextualDeserializer, StdDeserializer<Uid>(Uid::class.java) {
-
     private var rawClass: Class<*>? = null
 
     override fun createContextual(context: DeserializationContext, property: BeanProperty?): JsonDeserializer<*> {
