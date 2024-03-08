@@ -9,6 +9,7 @@ plugins {
 	kotlin("jvm") version "1.9.22"
 	kotlin("plugin.spring") version "1.9.22"
 	kotlin("plugin.jpa") version "1.9.22"
+	id("io.gitlab.arturbosch.detekt") version "1.23.5"
 }
 
 group = "com.example"
@@ -92,4 +93,8 @@ tasks {
 			)
 		}
 	}
+}
+
+detekt {
+	toolVersion = "1.23.5"
 }
