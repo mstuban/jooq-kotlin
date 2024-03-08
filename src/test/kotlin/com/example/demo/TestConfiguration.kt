@@ -9,7 +9,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter
 import javax.sql.DataSource
 
-
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @EnableJpaRepositories(basePackages = ["com.example.jooq.repository"])
