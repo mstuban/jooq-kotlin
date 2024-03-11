@@ -11,5 +11,11 @@ docker-compose -f scripts/docker/docker-compose.yml up
 ```
 
 ```console
-./gradlew bootRun
+./gradlew bootRun 
+```
+
+OR
+
+```console
+./gradlew test
 ```
